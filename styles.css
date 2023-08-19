@@ -1,3 +1,19 @@
+.first-color {
+  background: #222831;
+}
+
+.second-color {
+  background: #393e46;
+}
+
+.third-color {
+  background: #f96d00;
+}
+
+.fourth-color {
+  background: #f2f2f2;
+}
+
 *,
 *::before,
 *::after {
@@ -8,4 +24,27 @@
 
 *:not(i) {
   font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: #f2f2f2;
+  height: 100vh;
+}
+
+.calculator {
+  background-color: #393e46;
+  border-radius: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container-grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 80px);
+  gap: 10px;
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator App</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="calculator-icon.png" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
       rel="stylesheet"
@@ -13,7 +14,33 @@
   </head>
 
   <body>
-    <main></main>
+    <div class="calculator">
+      <div class="container-grid">
+        <div class="display">
+          <div id="prev-operand"></div>
+          <div id="current-operand"></div>
+        </div>
+        <button data-ac class="ac">AC</button>
+        <button data-c class="c">C</button>
+        <button data-operation class="operation">%</button>
+        <button data-operation class="operation">÷</button>
+        <button data-number>7</button>
+        <button data-number>8</button>
+        <button data-number>9</button>
+        <button data-operation class="operation">x</button>
+        <button data-number>4</button>
+        <button data-number>5</button>
+        <button data-number>6</button>
+        <button data-operation class="operation">-</button>
+        <button data-number>1</button>
+        <button data-number>2</button>
+        <button data-number>3</button>
+        <button data-operation class="operation">+</button>
+        <button data-number>0</button>
+        <button data-number>.</button>
+        <button data-equals class="span-two equals">=</button>
+      </div>
+    </div>
     <footer class="footer"></footer>
   </body>
   <script src="app.js"></script>
