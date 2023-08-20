@@ -18,8 +18,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
 *:not(i) {
@@ -27,24 +25,91 @@
 }
 
 body {
+  padding: 0;
+  margin: 0;
   background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   height: 100vh;
 }
 
 .calculator {
   background-color: #393e46;
   border-radius: 14px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transform: scale(0.7);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .container-grid {
   display: grid;
   justify-content: center;
-  align-items: center;
+  align-content: center;
   grid-template-columns: repeat(4, 80px);
   grid-template-rows: minmax(120px, auto) repeat(5, 80px);
   gap: 10px;
+  padding: 20px;
+}
+
+.display {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px;
+  background-color: rgb(78, 78, 78);
+  box-shadow: inset 0 0 10px rgb(37, 37, 37);
+  border-radius: 10px;
+}
+
+.container-grid > button {
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.75);
+  border: 0px;
+}
+
+button[data-operation],
+button[data-equals] {
+  background-color: #f96d00;
+}
+
+button[data-ac],
+button[data-c],
+button[data-percent] {
+  background-color: #222831;
+}
+
+button[data-number] {
+  background-color: #393e46;
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+/* FOOTER */
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #222831;
+  margin-top: 20px;
+}
+
+.fa-github {
+  font-size: 20px;
+  color: #222831;
+  transition: transform 0.4s ease-in-out;
+}
+
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
 }
