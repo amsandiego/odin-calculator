@@ -36,10 +36,12 @@ body {
 }
 
 .calculator {
-  background-color: #393e46;
+  background-color: #9ba6a5;
   border-radius: 14px;
   transform: scale(0.7);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .container-grid {
@@ -61,6 +63,10 @@ body {
   background-color: rgb(78, 78, 78);
   box-shadow: inset 0 0 10px rgb(37, 37, 37);
   border-radius: 10px;
+  justify-content: space-between;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-align: right;
 }
 
 .container-grid > button {
@@ -74,6 +80,12 @@ body {
   border: 0px;
 }
 
+.container-grid > button:hover {
+  background-color: #b6bbc2;
+  transform: scale(0.91);
+  font-size: 1.3rem;
+}
+
 button[data-operation],
 button[data-equals] {
   background-color: #f96d00;
@@ -85,12 +97,34 @@ button[data-percent] {
   background-color: #222831;
 }
 
-button[data-number] {
+button[data-number],
+button.point {
   background-color: #393e46;
 }
 
 .span-two {
   grid-column: span 2;
+}
+
+.ac:hover,
+.c:hover,
+.percent:hover {
+  background-color: #50565e !important;
+}
+
+.operation:not(.percent):hover,
+.equals:hover {
+  background-color: #f7a768 !important;
+}
+
+.display > #lastOperationDisplay {
+  font-size: 1.5rem;
+  color: #f2f2f2;
+}
+
+.display > #currentOperationDisplay {
+  font-size: 2rem;
+  color: #f2f2f2;
 }
 
 /* FOOTER */
