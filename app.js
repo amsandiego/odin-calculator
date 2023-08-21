@@ -30,6 +30,7 @@ const operatorButtons = document.querySelectorAll("[data-operation]");
 const numberButtons = document.querySelectorAll("[data-number]");
 const pointBtn = document.querySelector(".point");
 const equalsBtn = document.querySelector(".equals");
+const percentBtn = document.querySelector("[data-percent]");
 const lastOperationDisplay = document.getElementById("lastOperationDisplay");
 const currentOperationDisplay = document.getElementById(
   "currentOperationDisplay"
@@ -38,6 +39,8 @@ const currentOperationDisplay = document.getElementById(
 clearBtn.addEventListener("click", clear);
 deleteBtn.addEventListener("click", deleteNum);
 equalsBtn.addEventListener("click", evaluate);
+percentBtn.addEventListener("click", getPercent);
+window.addEventListener("keydown", keyboardInput);
 
 numberButtons.forEach((button) =>
   button.addEventListener("click", () => append(button.textContent))
@@ -46,6 +49,12 @@ numberButtons.forEach((button) =>
 operatorButtons.forEach((button) => {
   button.addEventListener("click", () => setOperation(button.textContent));
 });
+
+function getPercent() {
+  const num = Number(currentOperationDisplay.textContent);
+  currentOperationDisplay.textContent = num / 100;
+  lastOperationDisplay.textContent = "";
+}
 
 function append(num) {
   if (currentOperationDisplay.textContent === "0" || shouldReset) {
@@ -56,7 +65,8 @@ function append(num) {
 }
 
 function setOperation(operator) {
-  if (currentOperation !== null) evaluate;
+  if (currentOperation !== null) evaluate();
+
   firstOperand = currentOperationDisplay.textContent;
   currentOperation = operator;
   lastOperationDisplay.textContent = `${firstOperand} ${operator}`;
@@ -64,7 +74,8 @@ function setOperation(operator) {
 }
 
 function evaluate() {
-  if (currentOperation === null) return;
+  if (currentOperation === null || shouldReset) return;
+
   secondOperand = currentOperationDisplay.textContent;
 
   currentOperationDisplay.textContent = roundResult(
@@ -92,8 +103,6 @@ function operate(operator, a, b) {
     case "÷":
       if (b === 0) return null;
       else return divide(a, b);
-    case "%":
-      return percent(a);
     default:
       return null;
   }
@@ -115,4 +124,20 @@ function clear() {
   currentOperationDisplay.textContent = "0";
   lastOperationDisplay.textContent = "";
   currentOperation = null;
+}
+
+function keyboardInput(e) {
+  if ((e.key >= 0 && e.key <= 9) || e.key === ".") append(e.key);
+  if (e.key === "=" || e.key === "Enter") evaluate();
+  if (e.key === "Backspace") deleteNumber();
+  if (e.key === "Escape") clear();
+  if (e.key === "+" || e.key === "-" || e.key === "*" || e.key === "/")
+    setOperation(convertOperator(e.key));
+}
+
+function convertOperator(keyboardOperator) {
+  if (keyboardOperator === "/") return "÷";
+  if (keyboardOperator === "*") return "x";
+  if (keyboardOperator === "-") return "-";
+  if (keyboardOperator === "+") return "+";
 }
