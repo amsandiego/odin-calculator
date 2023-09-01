@@ -1,7 +1,11 @@
-# odin-calculator
+# The Odin Project - Calculator
 
-**Calculator App** built using HTML, CSS, and Vanilla JavaScript.
+This is a solution to the Calculator Project on [The Odin Project Foundations Course](https://www.theodinproject.com/lessons/foundations-calculator). It is a simple calculator built with JavaScript, CSS Grid, and HTML.
 
-The Odin Project Foundation Course [project](https://www.theodinproject.com/lessons/foundations-calculator).
+## Screenshot
 
-**Live preview** [here](https://amsandiego.github.io/odin-calculator/)
+![](./screenshot.png)
+
+## Links
+
+- Live Site URL: [https://amsandiego.github.io/odin-calculator](https://amsandiego.github.io/odin-calculator)
